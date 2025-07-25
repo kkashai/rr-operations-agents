@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roze Remit – Agent Form Launcher</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1D1D1D;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header img {
+      height: 60px;
+      vertical-align: middle;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      margin: 10px 0 0;
+      font-size: 1.8em;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    select {
+      padding: 12px;
+      font-size: 1em;
+      width: 300px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    iframe {
+      width: 100%;
+      height: 80vh;
+      border: none;
+      margin-top: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    footer {
+      background-color: #1D1D1D;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      font-size: 0.9em;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    a {
+      color: #F5C242;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .iframe-container {
+      position: relative;
+    }
+    .reload-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #F5C242;
+      color: #1D1D1D;
+      padding: 8px 12px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="ba5bbb77-b8af-4115-a035-aefb366d9171.png" alt="Roze Remit Logo">
+    <h1>Roze Remit – Agent Form Launcher</h1>
+  </header>
+
+  <div class="container">
+    <select id="agentSelector">
+      <option value="">-- Select Agent --</option>
+      <option value="Bilal_Siddique.html">Bilal Siddique</option>
+      <option value="Hammad_Khalid.html">Hammad Khalid</option>
+      <option value="Komail_Abbas.html">Komail Abbas</option>
+      <option value="Maliha_Shahid.html">Maliha Shahid</option>
+      <option value="Muhammad_Zeeshan.html">Muhammad Zeeshan</option>
+      <option value="Osama_Zubair.html">Osama Zubair</option>
+      <option value="Taimoor_Baig.html">Taimoor Baig</option>
+      <option value="Tauqeer_Nasir.html">Tauqeer Nasir</option>
+      <option value="Umair_Rauf.html">Umair Rauf</option>
+      <option value="Waqas_Malik.html">Waqas Malik</option>
+      <option value="Zeeshan_Babar.html">Zeeshan Babar</option>
+      <option value="Test_Form.html">Test</option>
+    </select>
+
+    <div class="iframe-container">
+      <button class="reload-button" onclick="reloadIframe()">Submit Another Transaction</button>
+      <iframe id="formFrame" src=""></iframe>
+    </div>
+  </div>
+
+  <footer>
+    © <a href="https://rozeremit.com">rozeremit.com</a> | All rights reserved
+  </footer>
+
+  <script>
+    const formFrame = document.getElementById('formFrame');
+    const agentSelector = document.getElementById('agentSelector');
+
+    agentSelector.addEventListener('change', function () {
+      formFrame.src = this.value || "";
+    });
+
+    function reloadIframe() {
+      if (formFrame.src) {
+        formFrame.src += '';
+      }
+    }
+  </script>
+</body>
+</html>
