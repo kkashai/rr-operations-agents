@@ -13,23 +13,22 @@
     header {
       background-color: #1D1D1D;
       color: white;
-      padding: 20px 0;
+      padding: 10px 0;
       text-align: center;
     }
     header img {
-      height: 60px;
+      height: 50px;
       vertical-align: middle;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     header h1 {
-      margin: 10px 0 0;
-      font-size: 1.8em;
+      margin: 5px 0 0;
+      font-size: 1.5em;
       font-weight: 600;
-      letter-spacing: 1px;
     }
     .container {
       max-width: 900px;
-      margin: 40px auto;
+      margin: 20px auto;
       padding: 20px;
       text-align: center;
     }
@@ -39,13 +38,57 @@
       width: 300px;
       border-radius: 5px;
       border: 1px solid #ccc;
+      margin: 10px 0;
     }
     iframe {
       width: 100%;
-      height: 80vh;
+      height: 85vh;
       border: none;
-      margin-top: 40px;
+      margin-top: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .iframe-container {
+      position: relative;
+    }
+    .reload-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #F5C242;
+      color: #1D1D1D;
+      padding: 8px 12px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 999;
+    }
+    .agent-name-display {
+      position: absolute;
+      top: 14px;
+      left: 20px;
+      font-weight: bold;
+      background-color: white;
+      padding: 6px 10px;
+      border-radius: 5px;
+      color: #1D1D1D;
+      z-index: 999;
+      font-size: 0.9em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .back-button {
+      position: absolute;
+      top: 14px;
+      left: 160px;
+      font-weight: bold;
+      background-color: #F5C242;
+      color: #1D1D1D;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 999;
+      font-size: 0.9em;
     }
     footer {
       background-color: #1D1D1D;
@@ -64,31 +107,16 @@
     a:hover {
       text-decoration: underline;
     }
-    .iframe-container {
-      position: relative;
-    }
-    .reload-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: #F5C242;
-      color: #1D1D1D;
-      padding: 8px 12px;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 999;
-    }
   </style>
 </head>
 <body>
   <header>
     <img src="ba5bbb77-b8af-4115-a035-aefb366d9171.png" alt="Roze Remit Logo">
-    <h1>Roze Remit – Agent Form Launcher</h1>
+    <h1 id="headerTitle">Roze Remit – Agent Form Launcher</h1>
   </header>
 
-  <div class="container">
+  <div class="container" id="mainSelector">
+    <h2>Select Your Name</h2>
     <select id="agentSelector">
       <option value="">-- Select Agent --</option>
       <option value="Bilal_Siddique.html">Bilal Siddique</option>
@@ -104,8 +132,12 @@
       <option value="Zeeshan_Babar.html">Zeeshan Babar</option>
       <option value="Test_Form.html">Test</option>
     </select>
+  </div>
 
+  <div class="container" id="mainContainer" style="display:none">
     <div class="iframe-container">
+      <div class="agent-name-display" id="agentNameDisplay"></div>
+      <button class="back-button" onclick="goBack()">Back</button>
       <button class="reload-button" onclick="reloadIframe()">Submit Another Transaction</button>
       <iframe id="formFrame" src=""></iframe>
     </div>
@@ -118,15 +150,33 @@
   <script>
     const formFrame = document.getElementById('formFrame');
     const agentSelector = document.getElementById('agentSelector');
+    const mainContainer = document.getElementById('mainContainer');
+    const mainSelector = document.getElementById('mainSelector');
+    const agentNameDisplay = document.getElementById('agentNameDisplay');
+    const headerTitle = document.getElementById('headerTitle');
 
     agentSelector.addEventListener('change', function () {
-      formFrame.src = this.value || "";
+      const selected = this.options[this.selectedIndex];
+      if (selected.value) {
+        mainSelector.style.display = 'none';
+        mainContainer.style.display = 'block';
+        formFrame.src = selected.value;
+        agentNameDisplay.innerText = selected.text;
+        headerTitle.style.display = 'none';
+      }
     });
 
     function reloadIframe() {
       if (formFrame.src) {
         formFrame.src += '';
       }
+    }
+
+    function goBack() {
+      mainContainer.style.display = 'none';
+      mainSelector.style.display = 'block';
+      headerTitle.style.display = 'block';
+      formFrame.src = '';
     }
   </script>
 </body>
