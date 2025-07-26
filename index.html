@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Roze Remit – Agent Form Launcher</title>
-  <style>
+<meta charset="utf-8"/>
+<title>Roze Remit – Agent Form Launcher</title>
+<style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #ffffff;
@@ -110,44 +111,26 @@
   </style>
 </head>
 <body>
-  <header>
-    <img src="ba5bbb77-b8af-4115-a035-aefb366d9171.png" alt="Roze Remit Logo">
-    <h1 id="headerTitle">Roze Remit – Agent Form Launcher</h1>
-  </header>
-
-  <div class="container" id="mainSelector">
-    <h2>Select Your Name</h2>
-    <select id="agentSelector">
-      <option value="">-- Select Agent --</option>
-      <option value="Bilal_Siddique.html">Bilal Siddique</option>
-      <option value="Hammad_Khalid.html">Hammad Khalid</option>
-      <option value="Komail_Abbas.html">Komail Abbas</option>
-      <option value="Maliha_Shahid.html">Maliha Shahid</option>
-      <option value="Muhammad_Zeeshan.html">Muhammad Zeeshan</option>
-      <option value="Osama_Zubair.html">Osama Zubair</option>
-      <option value="Taimoor_Baig.html">Taimoor Baig</option>
-      <option value="Tauqeer_Nasir.html">Tauqeer Nasir</option>
-      <option value="Umair_Rauf.html">Umair Rauf</option>
-      <option value="Waqas_Malik.html">Waqas Malik</option>
-      <option value="Zeeshan_Babar.html">Zeeshan Babar</option>
-      <option value="Test_Form.html">Test</option>
-    </select>
-  </div>
-
-  <div class="container" id="mainContainer" style="display:none">
-    <div class="iframe-container">
-      <div class="agent-name-display" id="agentNameDisplay"></div>
-      <button class="back-button" onclick="goBack()">Back</button>
-      <button class="reload-button" onclick="reloadIframe()">Submit Another Transaction</button>
-      <iframe id="formFrame" src=""></iframe>
-    </div>
-  </div>
-
-  <footer>
+<header>
+<img alt="Roze Remit Logo" src="ba5bbb77-b8af-4115-a035-aefb366d9171.png"/>
+<h1 id="headerTitle">Roze Remit – Agent Form Launcher</h1>
+</header>
+<div class="container" id="mainSelector">
+<h2>Select Your Name</h2>
+<select id="agentSelector"><option value="">-- Select Agent --</option><option value="Ali_Arsal.html">Ali Arsal</option><option value="Bilal_Siddique.html">Bilal Siddique</option><option value="Faseehur_Rahman.html">Faseehur Rahman</option><option value="Hammad_Khalid.html">Hammad Khalid</option><option value="Komail_Abbas.html">Komail Abbas</option><option value="Maliha_Shahid.html">Maliha Shahid</option><option value="Muhammad_Abdullah.html">Muhammad Abdullah</option><option value="Muhammad_Rizwan.html">Muhammad Rizwan</option><option value="Muhammad_Zeeshan.html">Muhammad Zeeshan</option><option value="Osama_Zubair.html">Osama Zubair</option><option value="Taimoor_Baig.html">Taimoor Baig</option><option value="Tauqeer_Nasir.html">Tauqeer Nasir</option><option value="Test_Form.html">Test</option><option value="Umair_Rauf.html">Umair Rauf</option><option value="Umar_Javaid.html">Umar Javaid</option><option value="Waqas_Malik.html">Waqas Malik</option><option value="Zeeshan_Babar.html">Zeeshan Babar</option></select>
+</div>
+<div class="container" id="mainContainer" style="display:none">
+<div class="iframe-container">
+<div class="agent-name-display" id="agentNameDisplay"></div>
+<button class="back-button" onclick="goBack()">Back</button>
+<button class="reload-button" onclick="reloadIframe()">Submit Another Transaction</button>
+<iframe id="formFrame" src=""></iframe>
+</div>
+</div>
+<footer>
     © <a href="https://rozeremit.com">rozeremit.com</a> | All rights reserved
   </footer>
-
-  <script>
+<script>
     const formFrame = document.getElementById('formFrame');
     const agentSelector = document.getElementById('agentSelector');
     const mainContainer = document.getElementById('mainContainer');
